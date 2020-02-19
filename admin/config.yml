@@ -8,6 +8,16 @@ backend:
 media_folder: "static/img" # Media files will be stored in the repo under images/uploads
 
 collections:
+  # Our bookmarks
+  - name: "bookmarks" # Used in routes, e.g., /admin/collections/blog
+    label: "Bookmark" # Used in the UI
+    folder: "bookmarks" # The path to the folder where the documents are stored
+    create: true # Allow users to create new documents in this collection
+    slug: "{{slug}}" # Filename template, e.g., YYYY-MM-DD-title.md
+    fields: # The fields for each document, usually in front matter
+      - { label: "Title", name: "title", widget: "string" }
+      - { label: "Publish Date", name: "date", widget: "datetime" }
+      - { label: "URL", name: "summary", widget: "url" }
   # Our blog posts
   - name: "blog" # Used in routes, e.g., /admin/collections/blog
     label: "Post" # Used in the UI
